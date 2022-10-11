@@ -13,11 +13,11 @@ body {
 }
 
 .title {
-  font-size: 5rem;
-  text-align: center;
   color: #a4bdff;
-  margin-top: 50px;
+  font-size: 5rem;
   margin-bottom: 125px;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .container {
@@ -65,7 +65,7 @@ body {
 }
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   display: block;
   height: 100vh;
   left: 0;
@@ -76,14 +76,46 @@ body {
 }
 
 .modal-content {
-  background-color: #fefefe;
-  border: 1px solid #888;
+  align-items: center;
+  background-color: #e4ebfd;
   border-radius: 1rem;
-  margin: 15% auto;
-  padding: 20px;
-  width: 80%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-weight: bold;
+  gap: 1rem;
+  height: min-content;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  max-width: 15%;
+  min-width: min-content;
+  padding: 2rem;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: auto;
 }
 
-.win-modal {
+#result-modal {
   display: none;
+}
+
+#next-round-btn {
+  background: #1f1f5d;
+  border: 0;
+  border-radius: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  width: fit-content;
+}
+
+#next-round-btn:hover {
+  background: #0d0d3f;
+  box-shadow: #1f1f5d 0 10px 20px -10px;
 }

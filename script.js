@@ -95,12 +95,13 @@ const Board = (() => {
   const result = (result) => {
     let div = document.createElement("div");
     div.id = "modal-result";
+    div.classList.add("result");
     div.textContent = result;
-    modalContentNode = document.getElementById("win-modal-content");
+    modalContentNode = document.getElementById("result-modal-content");
     modalContentNode.prepend(div);
 
-    let winModal = document.getElementById("win-modal");
-    winModal.style.display = "block";
+    let resultModal = document.getElementById("result-modal");
+    resultModal.style.display = "block";
 
     points(result);
     nextRound();
@@ -124,7 +125,7 @@ const Board = (() => {
     nextRoundButtonNode.addEventListener("click", function () {
       let modalResultNode = document.getElementById("modal-result");
       modalResultNode.remove();
-      let modalNode = document.getElementById("win-modal");
+      let modalNode = document.getElementById("result-modal");
       modalNode.style.display = "none";
 
       boardArray = new Array(9).fill(null);
