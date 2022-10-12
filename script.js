@@ -104,6 +104,7 @@ const Board = (() => {
     resultModal.style.display = "block";
 
     points(result);
+    currentWinner(playerOnePoints, playerTwoPoints);
     nextRound();
   };
 
@@ -117,6 +118,21 @@ const Board = (() => {
       let playerTwoPointsNode = document.getElementById("player-two-pts");
       playerTwoPointsNode.textContent = playerTwoPoints + " ";
     } else if (result === "Its a draw!") {
+    }
+  };
+
+  const currentWinner = (playerOnePoints, playerTwoPoints) => {
+    playerOneInfoNode = document.getElementById("playerOneInfo");
+    playerTwoInfoNode = document.getElementById("playerTwoInfo");
+    if (playerOnePoints > playerTwoPoints) {
+      playerOneInfoNode.style.background = "#12eb90";
+      playerTwoInfoNode.style.background = "#ff635c";
+    } else if (playerOnePoints < playerTwoPoints) {
+      playerOneInfoNode.style.background = "#ff635c";
+      playerTwoInfoNode.style.background = "#12eb90";
+    } else {
+      playerOneInfoNode.style.background = "#ffffff";
+      playerTwoInfoNode.style.background = "#ffffff";
     }
   };
 
