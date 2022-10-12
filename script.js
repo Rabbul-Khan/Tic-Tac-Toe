@@ -5,6 +5,18 @@ const Board = (() => {
   let playerTwoActive = false;
   let playerOnePoints = 0;
   let playerTwoPoints = 0;
+  let submitBtnNode = document.getElementsByClassName("submit-btn")[0];
+
+  submitBtnNode.addEventListener("click", function () {
+    let playerOneNameDisplayNode = document.getElementsByClassName(
+      "player-one-name-display"
+    )[0];
+    playerOneNameDisplayNode.textContent = playerOneName.value;
+    let playerTwoNameDisplayNode = document.getElementsByClassName(
+      "player-two-name-display"
+    )[0];
+    playerTwoNameDisplayNode.textContent = playerTwoName.value;
+  });
 
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener(
