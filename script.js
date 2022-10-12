@@ -5,17 +5,20 @@ const Board = (() => {
   let playerTwoActive = false;
   let playerOnePoints = 0;
   let playerTwoPoints = 0;
-  let submitBtnNode = document.getElementsByClassName("submit-btn")[0];
+  let submitBtnNode = document.getElementsByClassName("btn-submit")[0];
 
   submitBtnNode.addEventListener("click", function () {
     let playerOneNameDisplayNode = document.getElementsByClassName(
-      "player-one-name-display"
+      "player-name-display player-one"
     )[0];
     playerOneNameDisplayNode.textContent = playerOneName.value;
     let playerTwoNameDisplayNode = document.getElementsByClassName(
-      "player-two-name-display"
+      "player-name-display player-two"
     )[0];
     playerTwoNameDisplayNode.textContent = playerTwoName.value;
+    let inputNamesModalNode =
+      document.getElementsByClassName("modal-input-names")[0];
+    inputNamesModalNode.style.display = "none";
   });
 
   for (let i = 0; i < cells.length; i++) {
@@ -109,10 +112,12 @@ const Board = (() => {
     div.id = "modal-result";
     div.classList.add("result");
     div.textContent = result;
-    modalContentNode = document.getElementById("result-modal-content");
+    modalContentNode = document.getElementsByClassName(
+      "modal-content-result"
+    )[0];
     modalContentNode.prepend(div);
 
-    let resultModal = document.getElementById("result-modal");
+    let resultModal = document.getElementsByClassName("modal-result")[0];
     resultModal.style.display = "block";
 
     points(result);
@@ -123,19 +128,25 @@ const Board = (() => {
   const points = (result) => {
     if (result === "Player 1 wins!") {
       playerOnePoints++;
-      let playerOnePointsNode = document.getElementById("player-one-pts");
+      let playerOnePointsNode =
+        document.getElementsByClassName("points player-one")[0];
       playerOnePointsNode.textContent = playerOnePoints + " ";
     } else if (result === "Player 2 wins!") {
       playerTwoPoints++;
-      let playerTwoPointsNode = document.getElementById("player-two-pts");
+      let playerTwoPointsNode =
+        document.getElementsByClassName("points player-two")[0];
       playerTwoPointsNode.textContent = playerTwoPoints + " ";
     } else if (result === "Its a draw!") {
     }
   };
 
   const currentWinner = (playerOnePoints, playerTwoPoints) => {
-    playerOneInfoNode = document.getElementById("playerOneInfo");
-    playerTwoInfoNode = document.getElementById("playerTwoInfo");
+    playerOneInfoNode = document.getElementsByClassName(
+      "player-info player-one"
+    )[0];
+    playerTwoInfoNode = document.getElementsByClassName(
+      "player-info player-two"
+    )[0];
     if (playerOnePoints > playerTwoPoints) {
       playerOneInfoNode.style.background = "#12eb90";
       playerTwoInfoNode.style.background = "#ff635c";
@@ -149,11 +160,12 @@ const Board = (() => {
   };
 
   const nextRound = () => {
-    let nextRoundButtonNode = document.getElementById("next-round-btn");
+    let nextRoundButtonNode =
+      document.getElementsByClassName("btn-next-round")[0];
     nextRoundButtonNode.addEventListener("click", function () {
       let modalResultNode = document.getElementById("modal-result");
       modalResultNode.remove();
-      let modalNode = document.getElementById("result-modal");
+      let modalNode = document.getElementsByClassName("modal-result")[0];
       modalNode.style.display = "none";
 
       boardArray = new Array(9).fill(null);
