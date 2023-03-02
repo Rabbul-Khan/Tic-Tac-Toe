@@ -20,15 +20,17 @@
 
     <div class="modal modal-input-names">
       <div class="modal-content modal-content-input-names">
-        <div class="input-name-container player-one">
-          <label for="playerOneName">Player One Name</label>
-          <input type="text" id="playerOneName" />
-        </div>
-        <div class="input-name-container player-two">
-          <label for="playerTwoName">Player Two Name</label>
-          <input type="text" id="playerTwoName" />
-        </div>
-        <button class="btn btn-submit">Submit</button>
+        <form id="form">
+          <div class="input-name-container player-one">
+            <label for="playerOneName">Player One Name</label>
+            <input type="text" id="playerOneName" required="required" />
+          </div>
+          <div class="input-name-container player-two">
+            <label for="playerTwoName">Player Two Name</label>
+            <input type="text" id="playerTwoName" required="required" />
+          </div>
+          <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
       </div>
     </div>
 

@@ -7,7 +7,10 @@ const Board = (() => {
   let playerTwoPoints = 0;
   let submitBtnNode = document.getElementsByClassName("btn-submit")[0];
 
-  submitBtnNode.addEventListener("click", function () {
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
     let playerOneNameDisplayNode = document.getElementsByClassName(
       "player-name-display player-one"
     )[0];
@@ -20,6 +23,22 @@ const Board = (() => {
       document.getElementsByClassName("modal-input-names")[0];
     inputNamesModalNode.style.display = "none";
   });
+
+  // // const submitButton = () => {
+  // submitBtnNode.addEventListener("click", function () {
+  //   let playerOneNameDisplayNode = document.getElementsByClassName(
+  //     "player-name-display player-one"
+  //   )[0];
+  //   playerOneNameDisplayNode.textContent = playerOneName.value;
+  //   let playerTwoNameDisplayNode = document.getElementsByClassName(
+  //     "player-name-display player-two"
+  //   )[0];
+  //   playerTwoNameDisplayNode.textContent = playerTwoName.value;
+  //   let inputNamesModalNode =
+  //     document.getElementsByClassName("modal-input-names")[0];
+  //   inputNamesModalNode.style.display = "none";
+  // });
+  // //};
 
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener(
